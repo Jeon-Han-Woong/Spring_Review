@@ -9,4 +9,16 @@ public interface BoardMapper {
 
 //	@Select("select * from tbl_board where bno > 0")
 	public List<BoardVO> getList();
+	
+	// insert 후 pk 값 몰라도 될때
+	public void insert(BoardVO board);
+	
+	// insert 후 pk 값 알아야 될때
+	public void insertSelectKey(BoardVO board);
+	
+	public BoardVO read(Long bno);
+	
+	public int delete(Long bno);
+	
+	public int update(BoardVO board);
 }
