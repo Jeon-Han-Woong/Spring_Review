@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
  <!-- Footer -->
+</div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+    
+            <!-- End of Main Content -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -53,12 +60,12 @@
     <script src="/resources/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
+<!--     <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script> -->
     <script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/datatables-demo.js"></script>
-
+    
 </body>
 
 </html>
