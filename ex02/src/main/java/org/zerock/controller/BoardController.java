@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
@@ -54,13 +56,30 @@ public class BoardController {
 		model.addAttribute("board", service.get(bno));
 	}
 	
-	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
-		log.info("modift : " + board);
+	@GetMapping("/modify")
+	public void modify(@RequestParam("bno") Long bno, Model model) {
 		
-		if (service.modify(board)) {
-			rttr.addFlashAttribute("result", "success");
-		}
+		log.info("/modify");
+		
+		model.addAttribute("board", service.get(bno));
+	}
+	
+	@PostMapping("/modify")
+	public String modify(@RequestParam("bno") Long bno, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("writer") String writer, RedirectAttributes rttr) {
+		
+		BoardVO board = new BoardVO();
+		
+		board.setBno(bno);
+		board.setTitle(title);
+		board.setContent(content);
+		board.setWriter(writer);
+		
+		log.info("modify : " + board);
+		service.modify(board);
+		
+
+		rttr.addFlashAttribute("result", "success");
+		
 		
 		return "redirect:/board/list";
 	}

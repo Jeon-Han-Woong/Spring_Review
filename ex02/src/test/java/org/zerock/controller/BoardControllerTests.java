@@ -64,11 +64,11 @@ public class BoardControllerTests {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testModify() throws Exception {
 		String resultPage = mockMvc
 				.perform(MockMvcRequestBuilders.post("/board/modify")
-						.param("bno", "1")
+						.param("bno", "4")
 						.param("title", "테스트 수정 새글 제목!")
 						.param("content", "수정 테스트 새글 내용!")
 						.param("writer", "user102"))
@@ -77,7 +77,7 @@ public class BoardControllerTests {
 		log.info(resultPage);
 	}
 	
-	@Test
+//	@Test
 	public void testRemove() throws Exception {
 		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove").param("bno", "23"))
 				.andReturn().getModelAndView().getViewName();
