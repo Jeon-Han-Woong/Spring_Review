@@ -34,15 +34,25 @@ public class BoardControllerTests {
 	}
 	
 //	@Test
-	public void testList() throws Exception {
-		
-		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list")
-				).andReturn()
-				.getModelAndView()
-				.getModelMap());
-	}
+//	public void testList() throws Exception {
+//		
+//		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list")
+//				).andReturn()
+//				.getModelAndView()
+//				.getModelMap());
+//	}
 	
 	@Test
+	public void testListPaging() throws Exception {
+		log.info(mockMvc.perform(
+				MockMvcRequestBuilders.get("/board/list")
+				.param("pageNum", "2")
+				.param("amount", "50"))
+				.andReturn().getModelAndView().getModelMap());
+		
+	}
+	
+//	@Test
 	public void testRegister () throws Exception{
 		
 		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
@@ -64,7 +74,7 @@ public class BoardControllerTests {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testModify() throws Exception {
 		String resultPage = mockMvc
 				.perform(MockMvcRequestBuilders.post("/board/modify")
