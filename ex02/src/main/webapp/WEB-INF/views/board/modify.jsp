@@ -24,6 +24,9 @@
 			<input type="hidden" id='pageNum' name='pageNum' value="<c:out value='${cri.pageNum }'/>">
 			<input type="hidden" id='bno' name='amount' value="<c:out value='${cri.amount }'/>">
 			
+			<input type="hidden" id='type' name='type' value="<c:out value='${cri.type }'/>">
+			<input type="hidden" id='keyword' name='keyword' value="<c:out value='${cri.keyword }'/>">
+			
 			<div class="form-group">
 				<label>Bno</label> <input class="form-control namem" name="bno" value='<c:out value="${board.bno }"/>' readonly>
 			</div>
@@ -77,10 +80,14 @@ $(document).ready(function() {
 			formObj.attr("action", "/board/list").attr("method", "get");
 			var pageNumTag = $("input[name='pageNum']").clone();
 			var amountTag = $("input[name='amount']").clone();
+			var pageNumTag = $("input[name='type']").clone();
+			var amountTag = $("input[name='keyword']").clone();
 			
 			formObj.empty();
 			formObj.append(pageNumTag);
 			formObj.append(amountTag);
+			formObj.append(type);
+			formObj.append(keyword);
 			
 		} else if (operation === 'modify') {
 			console.log("modify");
