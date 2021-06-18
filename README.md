@@ -4,9 +4,11 @@
 
 ### 진행 내용 
 
-### 2021-06-19 ~p.389
+### 2021-06-19 ~p.399
 
 - ReplyMapper 기능 구현 및 테스트
+- ReplyService 기능 구현
+- RestController 테스트 with YARC
 
 ### 2021-06-18 ~p.375
 
